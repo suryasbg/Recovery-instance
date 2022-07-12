@@ -1,0 +1,10 @@
+                                Recovering EC2 if SSH is lost
+We have to create a recovery instance to set a fresh ssh keys. 
+•	first we need to detach the volume from the lost(ssh key) ec2 instance.
+•	Then attach the volume to the ec2 which has ssh(pem key)
+•	After that we need to mount that volume using commands.
+	mkdir recovery
+	mount /dev/xvdf1 recovery
+	cat /home/ubuntu/.ssh/authorized_keys > home/ubuntu/.ssh/authorized_keys
+	cat home/ubuntu/.ssh/authorized_keys
+Note : while reattaching to the ec2 we need to change root device name
